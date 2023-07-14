@@ -1,0 +1,740 @@
+<link href="javascripts/slick/slick.css" rel="stylesheet" type="text/css" />
+<link href="javascripts/slick/slick-theme.css" rel="stylesheet" type="text/css" />
+<style>
+    .topnav_content_spacer {
+        height: 0 !important;
+    }
+
+    main {
+        border-top: 0 !important;
+    }
+
+    .discovery_search {
+        border-top: 4px solid #d2d3d3;
+        background-image: url(https://library.niu.edu/university-libraries/images/hero-abstract.jpg);
+        background-position: center left;
+        background-size: cover;
+        transition: all .25s ease-out;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 42px 0;
+        margin: 0 0 2em 0;
+    }
+
+    .discovery_search .tabs-container {
+        margin: 12px auto 32px;
+        max-width: 370px;
+    }
+
+    .discovery_search .tabs-container>ul.nav-tabs {
+        border: 0;
+    }
+
+    .discovery_search .tabs-container>ul.nav-tabs .nav-item {
+        margin-bottom: 0;
+        margin-right: 1px;
+    }
+
+    .discovery_search .tabs-container>ul.nav-tabs .nav-link {
+        padding: 0.75rem 1rem;
+        border: 0;
+        border-radius: 0;
+        color: #fff;
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .discovery_search .tabs-container>ul.nav-tabs .nav-link:focus,
+    .discovery_search .tabs-container>ul.nav-tabs .nav-link:hover,
+    .discovery_search .tabs-container>ul.nav-tabs .nav-item.show .nav-link,
+    .discovery_search .tabs-container>ul.nav-tabs .nav-link.active {
+        color: #fff;
+        background: rgba(0, 0, 0, .66);
+        border-top: 3px solid #c8102e;
+    }
+
+    .discovery_search .tabs-container>div.tab-content {
+        background: rgba(0, 0, 0, .66);
+        padding: 1rem 2rem;
+    }
+
+    .discovery_search .tabs-container>div.tab-content>div.tab-pane {
+        padding: 0;
+    }
+
+    #huskie-search .input-group .input-group-prepend a:nth-child(1) {
+        margin: 0 8px 0 0;
+    }
+
+    #article-databases .input-group .input-group-prepend a:nth-child(2) {
+        margin: 0 8px;
+    }
+
+    #journals .input-group .input-group-prepend a:nth-child(2) {
+        margin: 0 8px;
+    }
+
+    .discovery_search .alert {
+        margin: -42px auto 24px;
+        padding: 0.5em;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .discovery-alert {
+        margin: 0 auto;
+    }
+
+    .discovery-alert ul {
+        list-style-type: none;
+        margin-bottom: 0;
+        padding: 0.33em 1rem;
+    }
+
+    .discovery-alert ul li:before {
+        content: '... '
+    }
+
+    .discovery-alert ul li:after {
+        content: ' ...'
+    }
+
+    .rotating-banner {
+        margin: 24px auto;
+        max-width: 370px;
+    }
+
+    .rotating-banner .rotating-banner-caption {
+        position: absolute;
+        background-color: rgba(0, 0, 0, .9);
+        padding: 1em;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 460px;
+    }
+
+    @supports (backdrop-filter: blur(10px)) {
+        .rotating-banner .rotating-banner-caption {
+            background-color: rgba(0, 0, 0, .66) !important;
+            backdrop-filter: blur(10px);
+        }
+    }
+
+    .rotating-banner .rotating-banner-caption p {
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        color: #ffffff;
+    }
+
+    .rotating-banner .rotating-banner-caption p.rotating-banner-caption-heading {
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        font-size: 1.6875rem;
+        line-height: 1.3;
+    }
+
+    .rotating-banner .slick-slide .img-fluid {
+        max-height: 240px;
+    }
+
+    .slick-dotted.slick-slider {
+        margin-bottom: .5em !important;
+    }
+
+    .rotating-banner .slick-dots {
+        bottom: -.5em;
+        right: 0;
+        width: 460px;
+    }
+
+    .rotating-banner .slick-dots li {
+        margin: 0 10px;
+    }
+
+    .rotating-banner .slick-dots li button::before {
+        font-size: 10px;
+        line-height: 20px;
+        width: 32px;
+        height: 3px;
+        content: "";
+        background-color: white;
+        color: white;
+    }
+
+    @media (max-width: 767px) {
+
+        .discovery_search .tab-content .tab-pane .input-group .input-group-prepend,
+        .discovery_search .tab-content .tab-pane .input-group .input-group-prepend>* {
+            width: 100%;
+        }
+
+        #article-databases .input-group .input-group-prepend a:nth-child(2) {
+            margin: 0 0 0 8px;
+        }
+
+        #journals .input-group .input-group-prepend a:nth-child(2) {
+            /* line-height: 2.9em; */
+            margin: 0 0 0 8px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .rotating-banner .slick-slide .img-fluid {
+            max-height: 240px;
+        }
+
+        .rotating-banner .rotating-banner-caption {
+            position: relative;
+            width: 100%;
+        }
+
+        .rotating-banner .slick-dots {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .discovery_search .tabs-container>ul.nav-tabs li.nav-item {
+            flex-grow: 1;
+            text-align: center;
+        }
+    }
+
+    @media (min-width: 576px) {
+        .discovery_search .tabs-container {
+            max-width: 520px;
+        }
+
+        .discovery-alert {
+            max-width: 520px;
+        }
+
+        .rotating-banner {
+            max-width: 520px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .discovery_search .tabs-container {
+            max-width: 700px;
+        }
+
+        .discovery-alert {
+            max-width: 700px;
+        }
+
+        .rotating-banner {
+            max-width: 700px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .discovery_search .tabs-container {
+            max-width: 940px;
+        }
+
+        .discovery-alert {
+            max-width: 940px;
+        }
+
+        .rotating-banner {
+            max-width: 940px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .discovery_search .tabs-container {
+            max-width: 1120px;
+        }
+
+        .discovery-alert {
+            max-width: 1120px;
+        }
+
+        .rotating-banner {
+            max-width: 1120px;
+        }
+    }
+
+    @media (min-width: 1500px) {
+        .discovery_search .tabs-container {
+            max-width: 1420px;
+        }
+
+        .discovery-alert {
+            max-width: 1420px;
+        }
+
+        .rotating-banner {
+            max-width: 1420px;
+        }
+    }
+</style>
+<script src="javascripts/cookiemanager.js"></script>
+<script src="javascripts/slick/slick.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        var alert_hidden = false;
+
+        const template = `  <div class="discovery_search">
+
+                                <div class="alert alert-warning hidden" role="alert">
+                                    <div class="row discovery-alert">
+                                        <div class="col" style="flex-grow: 0; align-self: center; padding: 0 .5em;"><i
+                                                class="fal fa-exclamation-triangle fa-2x"></i></div>
+                                        <div class="col" style="padding: 0;">
+                                            <ul>
+                                                <li>University Libraries (all locations) will be closed on Thursday, June 8, 2023.</li>
+                                               <!-- <li>Starting Tuesday, February 7th, the Libraries will have a limited number of laptops available for checkout. They are available for 3-weeks only and subject to the conditions of our updated <a href="https://library.niu.edu/university-libraries/about/policies/laptopcirculation.pdf" target="_blank">Laptop Circulation Policy</a>.</li> -->
+                                              <!--  <li><span class="badge badge-danger" style="vertical-align: text-bottom !important;">Sept 8, 3:45 pm - Kanopy Unavailable</span><a href='https://niu.kanopy.com/' target='_blank'> Kanopy</a> is currently experiencing technical difficulties. Please try again later</li> -->
+                                              <!--  <li><a href="https://libguides.niu.edu/continuity" target="_blank">Library Services
+                                                        Updates</a></li> -->
+                                              <!--  <li><a href="https://www.niu.edu/updates/" target="_blank">NIU Campus Operations,
+                                                        Coronavirus updates and FAQ</a></li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="col" style="flex-grow: 0; align-self: center; padding: 0;">
+                                          <a class="button" href="javascript:void();" title="hide alert"><i class="fal fa-window-close"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="tabs-container">
+                                  <ul class="nav nav-tabs">
+                                      <li class="nav-item active"><a class="nav-link active show" data-toggle="tab" href="#huskie-search">HuskieSearch</a></li>
+                                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#article-databases">Databases</a></li>
+                                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#journals">Journals</a></li>
+                                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#huskie-commons">Huskie Commons</a></li>
+                                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#niu-diglib">Digital Library</a></li>
+                                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#google-search">Google Scholar</a></li>
+                                  </ul>
+                                  <div class="tab-content">
+                                    <div class="tab-pane container fade active show" id="huskie-search">
+                                        <form>
+                                            <fieldset>
+                                                <div class="input-group mt-3 mb-3">
+                                                    <div class="input-group-prepend"><a class="btn btn-primary"
+                                                            href="https://libguides.niu.edu/huskiesearchhelp" role="button"
+                                                            target="_blank">Help <i class="fas fa-external-link-alt"></i></a> <button
+                                                            aria-expanded="false" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                                            type="button">Library Catalog</button>
+                                                        <div class="dropdown-menu"><a class="dropdown-item" data-searchscope="MyInstitution"
+                                                                data-searchtab="LibraryCatalog">Library Catalog</a> <a class="dropdown-item"
+                                                                data-searchscope="CourseReserves" data-searchtab="CourseReserves">Course
+                                                                Reserves</a> <a class="dropdown-item" data-searchscope="NewDiscoveryNetwork"
+                                                                data-searchtab="NewDiscoveryNetwork">All I-Share Libraries</a> <a
+                                                                class="dropdown-item" data-searchscope="CentralIndex"
+                                                                data-searchtab="Articles">Articles &amp; More</a> <a class="dropdown-item"
+                                                                data-searchscope="Ebooks" data-searchtab="Ebooks">E-Books</a> <a
+                                                                class="dropdown-item" data-searchscope="WorldCatIndex"
+                                                                data-searchtab="WorldCatSearch">WorldCat</a> <a class="dropdown-item"
+                                                                data-searchscope="NewDiscoveryNetwork_CI"
+                                                                data-searchtab="EverythingNew">Everything</a></div>
+                                                    </div>
+                                                    <label class="hidden" for="huskie-search-input-q">Search anything</label><input
+                                                        autocomplete="off" class="form-control" id="huskie-search-input-q"
+                                                        placeholder="Search anything" type="text" /> <input id="searchtab" type="hidden"
+                                                        value="LibraryCatalog" /> <input id="searchscope" type="hidden" value="MyInstitution" />
+                                                    <div class="input-group-append"><button aria-label="Start Search"
+                                                            class="btn btn-primary hidden-xs" type="button"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane container fade" id="article-databases">
+                                        <form>
+                                            <fieldset>
+                                                <div class="input-group mt-3 mb-3">
+                                                    <div class="input-group-prepend"><a class="btn btn-primary"
+                                                            href="https://libguides.niu.edu/find" role="button" target="_blank"><span
+                                                                class="hidden-xs">Resources by </span>Subject <i
+                                                                class="fas fa-external-link-alt"></i></a> <a class="btn btn-primary"
+                                                            href="https://libguides.niu.edu/az.php?t=17938" role="button"
+                                                            target="_blank">A-Z<span class="hidden-xs"> List</span> <i
+                                                                class="fas fa-external-link-alt"></i></a></div>
+                                                    <label class="hidden" for="article-databases-input-q">Search for database name</label><input
+                                                        autocomplete="off" class="form-control" id="article-databases-input-q" name="q"
+                                                        placeholder="Search for database name" type="text" /> <input name="t" type="hidden"
+                                                        value="17938" />
+                                                    <div class="input-group-append"><button aria-label="Start Search"
+                                                            class="btn btn-primary hidden-xs" type="button"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane container fade" id="journals">
+                                        <form>
+                                            <fieldset>
+                                                <div class="input-group mt-3 mb-3">
+                                                    <div class="input-group-prepend"><a class="btn btn-primary"
+                                                            href="https://i-share-niu.primo.exlibrisgroup.com/discovery/citationlinker?vid=01CARLI_NIU:FML_DEFAULT&amp;lang=en"
+                                                            role="button" target="_blank">Citation Linker <i
+                                                                class="fas fa-external-link-alt"></i></a> <a class="btn btn-primary"
+                                                            href="https://i-share-niu.primo.exlibrisgroup.com/discovery/jsearch?vid=01CARLI_NIU:FML_DEFAULT"
+                                                            role="button" target="_blank">A-Z<span class="hidden-xs"> List</span> <i
+                                                                class="fas fa-external-link-alt"></i></a></div>
+                                                    <label class="hidden" for="journals-input-q">Search for print and electronic
+                                                        journals</label><input autocomplete="off" class="form-control" id="journals-input-q"
+                                                        placeholder="Search for print and electronic journals" type="text" />
+                                                    <div class="input-group-append"><button aria-label="Start Search"
+                                                            class="btn btn-primary hidden-xs" type="button"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane container fade" id="huskie-commons">
+                                        <form>
+                                            <fieldset>
+                                                <div class="input-group mt-3 mb-3">
+                                                    <div class="input-group-prepend"><button aria-expanded="false"
+                                                            class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                                            type="button">Keyword</button>
+                                                        <div class="dropdown-menu"><a class="dropdown-item">Keyword</a> <a class="dropdown-item">Title</a> <a
+                                                                class="dropdown-item">Author</a> <a class="dropdown-item">Subject</a></div>
+                                                    </div>
+                                                    <label class="hidden" for="huskie-commons-input-q">Search Institutional Repository</label><input
+                                                        autocomplete="off" class="form-control" id="huskie-commons-input-q"
+                                                        placeholder="Search Institutional Repository" type="text" /> <input
+                                                        id="huskie-commons-output-q" name="q" type="hidden" /> <input name="context" type="hidden"
+                                                        value="26837939" /><input id="filtertype_1" type="hidden" value="Keyword" /> <input
+                                                        name="context" type="hidden" value="26837939" /> <input name="sort" type="hidden"
+                                                        value="date_desc" /> <input name="start" type="hidden" value="0" />
+                                                    <div class="input-group-append"><button aria-label="Start Search"
+                                                            class="btn btn-primary hidden-xs" type="button"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane container fade" id="niu-diglib">
+                                        <form>
+                                            <fieldset>
+                                                <div class="input-group mt-3 mb-3">
+                                                    <div class="input-group-prepend"><button aria-expanded="false"
+                                                            class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                                            type="button">Keyword</button>
+                                                        <div class="dropdown-menu"><a class="dropdown-item"
+                                                                data-value="catch_all_fields_mt">Keyword</a> <a class="dropdown-item"
+                                                                data-value="mods_title_mt">Title</a> <a class="dropdown-item"
+                                                                data-value="mods_name_mt">Creator</a> <a class="dropdown-item"
+                                                                data-value="mods_host_title_mt">Collection</a></div>
+                                                    </div>
+                                                    <label class="hidden" for="niu-diglib-input-q">Search Digital Library</label><input
+                                                        autocomplete="off" class="form-control" id="niu-diglib-input-q"
+                                                        placeholder="Search Digital Library" type="text" /> <input id="niudiglibsearchfield"
+                                                        type="hidden" value="catch_all_fields_mt" />
+                                                    <div class="input-group-append"><button aria-label="Start Search"
+                                                            class="btn btn-primary hidden-xs" type="button"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane container fade" id="google-search">
+                                        <form>
+                                            <fieldset><input name="inst" type="hidden" value="12478593974778807156" />
+                                                <div class="input-group mt-3 mb-3"><label class="hidden" for="google-search-input-q">Search for
+                                                        articles and more</label><input autocomplete="off" class="form-control"
+                                                        id="google-search-input-q" placeholder="Search for articles and more" type="text" />
+                                                    <div class="input-group-append"><button aria-label="Start Search"
+                                                            class="btn btn-primary hidden-xs" type="button"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="rotating-banner">
+                                  <!--  <div><a href="https://dog.niu.edu/giving-day/63185/department/65349" target="_blank"> <img alt="banner for Huskies United Day of Giving" class="center-block img-fluid" data-lazy="images/rotator/dayofgiving2023.jpg" /></a>
+                                        <div class="rotating-banner-caption">
+                                            <p class="rotating-banner-caption-heading">Huskies United</p>
+                                            <p class="rotating-banner-caption-content">Help University Libraries raise funds for individual projects during this year's Day of Giving event. March 22, 4:25 pm - March 23, 11:59 pm.</p>
+                                        </div>
+                                    </div> -->  
+                                    <div><a href="https://www.niu.edu/braven/index.shtml" target="_blank"> <img alt="banner for Braven" class="center-block img-fluid" data-lazy="images/rotator/banner-braven-edited.jpg" /></a>
+                                        <div class="rotating-banner-caption">
+                                            <p class="rotating-banner-caption-heading">Jump-Start Your Career.</p>
+                                            <p class="rotating-banner-caption-content">Enroll in UNIV 301. <a href="https://www.niu.edu/braven/index.shtml" target="_blank" style="color: #ccc; box-shadow: inset 0 -1px 0 #c8102e, inset 0 -1px 0 #c8102e;text-decoration: none;">Learn More ></a></p>
+                                        </div>
+                                    </div> 
+                                    <div><a href="https://library.niu.edu/university-libraries/rooms/sos/index.shtml"> <img alt="banner for Science on a Sphere" class="center-block img-fluid" data-lazy="images/rooms/sos/sos_permanent_exhibit.jpg" /></a>
+                                        <div class="rotating-banner-caption">
+                                            <p class="rotating-banner-caption-heading">Science on a Sphere</p>
+                                            <p class="rotating-banner-caption-content"><a class="btn btn-primary btn-lg m-1" href="https://library.niu.edu/university-libraries/rooms/sos/index.shtml" style="width: 100%;">Welcome</a><a class="btn btn-primary btn-lg m-1" href="https://library.niu.edu/university-libraries/rooms/sos/playlist_all.shtml" style="width: 100%;">Playlists</a><a class="btn btn-lg btn-primary m-1" href="http://go.niu.edu/room-reservations-lib" rel="noopener" style="width: 100%;" target="_blank">Schedule a Science on a Sphere Program Time</a></p>
+                                        </div>
+                                    </div>
+                                    <div><a href="https://libguides.niu.edu/OER" target="_blank"> <img alt="Textbook promo banner"
+                                                class="center-block img-fluid" data-lazy="images/rotator/banner_textbooks.jpg" /> </a>
+                                        <div class="rotating-banner-caption">
+                                            <p class="rotating-banner-caption-heading">Helping Faculty Help Students</p>
+                                            <p class="rotating-banner-caption-content">Find Low- and No-Cost Course Materials or Submit a Faculty
+                                                Request for a Textbook.</p>
+                                        </div>
+                                    </div>  
+                                    <!--
+                                    <div><a href="https://libguides.niu.edu/avon" target="_blank"> <img alt="banner for Academic Video Online database subscription" class="center-block img-fluid" data-lazy="images/rotator/banner-avon.jpg" /></a>
+                                        <div class="rotating-banner-caption">
+                                            <p class="rotating-banner-caption-heading">Academic Video Online now available</p>
+                                            <p class="rotating-banner-caption-content">Includes over 79,000 streaming videos on a wide variety of topics, from business to health to music.</p>
+                                        </div>
+                                    </div>   
+                                    -->                                                               
+                                </div>
+
+                            </div>`;
+        $(template).insertBefore('main.container');
+
+        $('.discovery-alert a.button').click(function () {
+            $(this).closest('.alert').hide();
+            alert_hidden = true;
+        });
+
+        $('.rotating-banner').slick({
+            lazyLoad: 'ondemand',
+            autoplay: true,
+            autoplaySpeed: 5000,
+            dots: true,
+            infinite: true,
+            speed: 250,
+            fade: true,
+            cssEase: 'linear',
+            adaptiveHeight: true,
+            arrows: false,
+        })
+            .on('lazyLoaded', function (event, slick, image, imageSource) {
+                slick.resize();
+            });
+
+        const COOKIE_SELECTED_TAB = "discovery_search_selected_tab";
+
+        var selectTab = function (tab) {
+            var tabID = getCookie(COOKIE_SELECTED_TAB);
+            if (tabID == "" || tabID == null) {
+                tabID = tab;
+            }
+            $('.discovery_search .tabs-container > ul.nav-tabs a[href="' + tabID + '"]').tab('show');
+        }
+        selectTab("#huskie-search");
+
+        $('.discovery_search .tabs-container > ul.nav-tabs a').click(function (e) {
+            var tabID = $(this).attr('href');
+            setCookie(COOKIE_SELECTED_TAB, tabID, 1);
+        });
+
+        $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
+            var tabID = $(this).attr('href');
+            $(tabID + ' input.form-control').focus();
+        });
+
+        /* ------------------------------- HuskieSearch --------------------------------*/
+
+        $("#huskie-search .input-group-prepend .dropdown-item").click(function (e) {
+            e.preventDefault();
+
+            var text = $(this).text();
+            var searchtab = $(this).attr("data-searchtab");
+            var searchscope = $(this).attr("data-searchscope");
+            var form = $(this).closest('form');
+
+            $(form).find('#searchtab').val(searchtab);
+            $(form).find('#searchscope').val(searchscope);
+            $("#huskie-search .input-group-prepend .dropdown-toggle").text(text);
+        });
+
+        $("#huskie-search .input-group-append > .btn-primary").click(function (e) {
+            e.preventDefault();
+            search_anything($("#huskie-search input.form-control"));
+        });
+
+        $("#huskie-search input.form-control").keypress(function (e) {
+            var code = e.key;
+            if (code === "Enter") {
+                e.preventDefault();
+                search_anything(this);
+            }
+        });
+
+        var search_anything = function (input) {
+            var form = $(input).closest('form');
+            var search = $(input).val();
+            var url = "https://i-share-niu.primo.exlibrisgroup.com/discovery/search?query=any,contains,";
+            var searchtab = $(form).find('#searchtab').val();
+            var searchscope = $(form).find('#searchscope').val();
+            $(form).attr('action', url + encodeURIComponent(search) + '&tab=' + encodeURIComponent(searchtab) + '&search_scope=' + encodeURIComponent(searchscope) + '&vid=01CARLI_NIU:FML_DEFAULT&offset=0');
+            $(form).attr('method', 'POST');
+            $(form).attr('target', '_blank');
+            $(form).submit();
+        }
+
+        /* ------------------------------- Databases --------------------------------*/
+
+        $("#article-databases .input-group-append > .btn-primary").click(function (e) {
+            e.preventDefault();
+            search_databases($("#article-databases input.form-control"));
+        });
+
+        $("#article-databases input.form-control").keypress(function (e) {
+            var code = e.key;
+            if (code === "Enter") {
+                e.preventDefault();
+                search_databases(this);
+            }
+        });
+
+        var search_databases = function (input) {
+            var form = $(input).closest('form');
+            var url = "https://libguides.niu.edu/az.php";
+            $(form).attr('action', url);
+            //Libguides changed their requirements and only accepts GET requests moving forward
+            //move data from query string to hidden inputs within form
+            $(form).attr('method', 'GET');
+            $(form).attr('target', '_blank');
+            $(form).submit();
+        }
+
+        /* ------------------------------- Journals --------------------------------*/
+
+        $("#journals .input-group-append > .btn-primary").click(function (e) {
+            e.preventDefault();
+            search_journals($("#journals input.form-control"));
+        });
+
+        $("#journals input.form-control").keypress(function (e) {
+            var code = e.key;
+            if (code === "Enter") {
+                e.preventDefault();
+                search_journals(this);
+            }
+        });
+
+        var search_journals = function (input) {
+            var form = $(input).closest('form');
+            var search = $(input).val();
+            var url = "https://i-share-niu.primo.exlibrisgroup.com/discovery/jsearch?query=any,contains,";
+            $(form).attr('action', url + encodeURIComponent(search) + '&tab=jsearch_slot&vid=01CARLI_NIU:FML_DEFAULT&offset=0&journals=any,' + encodeURIComponent(search));
+            $(form).attr('method', 'POST');
+            $(form).attr('target', '_blank');
+            $(form).submit();
+        }
+
+        /* ------------------------------- Huskie Commons --------------------------------*/
+
+        $("#huskie-commons .input-group-prepend .dropdown-item").click(function (e) {
+            e.preventDefault();
+
+            var value = $(this).text();
+            var form = $(this).closest('form');
+
+            $(form).find('#filtertype_1').val(value.toLowerCase());
+            $("#huskie-commons .input-group-prepend .dropdown-toggle").text(value);
+
+            var q = $(form).find('#huskie-commons-input-q').val();
+            $(form).find('#huskie-commons-output-q').val(value.toLowerCase() != 'keyword' ? (value.toLowerCase() + ':' + q) : q);
+        });
+
+        $("#huskie-commons .input-group-append > .btn-primary").click(function (e) {
+            e.preventDefault();
+            search_huskiecommons($("#huskie-commons input.form-control"));
+        });
+
+        $("#huskie-commons input.form-control").keypress(function (e) {
+            var code = e.key;
+            if (code === "Enter") {
+                e.preventDefault();
+                search_huskiecommons(this);
+            }
+        });
+
+        $("#huskie-commons input.form-control").keyup(function (e) {
+            var code = e.key;
+            if (code !== "Enter") {
+                var filtertype = $(this).closest('form').find('#filtertype_1').val();
+                var q = $(this).val();
+                $(this).closest('form').find('#huskie-commons-output-q').val(filtertype.toLowerCase() != 'keyword' ? (filtertype.toLowerCase() + ':' + q) : q);
+            }
+        });
+
+        var search_huskiecommons = function (input) {
+            var form = $(input).closest('form');
+            var search = $(input).val();
+            var q = $(form).find('#huskie-commons-output-q').val();
+            var url = "https://huskiecommons.lib.niu.edu/do/search/?q=";
+            $(form).attr('action', url + encodeURIComponent(q) + "&context=26837939&sort=date_desc&start=0");
+            $(form).attr('method', 'GET');
+            $(form).attr('target', '_blank');
+            $(form).submit();
+        }
+
+        /* ------------------------------- Digital Library --------------------------------*/
+
+        $("#niu-diglib .input-group-prepend .dropdown-item").click(function (e) {
+            e.preventDefault();
+
+            var text = $(this).text();
+            var value = $(this).attr('data-value');
+            var form = $(this).closest('form');
+
+            $(form).find('#niudiglibsearchfield').val(value);
+            $("#niu-diglib .input-group-prepend .dropdown-toggle").text(text);
+        });
+
+        $("#niu-diglib .input-group-append > .btn-primary").click(function (e) {
+            e.preventDefault();
+            search_digitallibrary($("#niu-diglib input.form-control"));
+        });
+
+        $("#niu-diglib input.form-control").keypress(function (e) {
+            var code = e.key;
+            if (code === "Enter") {
+                e.preventDefault();
+                search_digitallibrary(this);
+            }
+        });
+
+        var search_digitallibrary = function (input) {
+            var form = $(input).closest('form');
+            var search = $(input).val();
+            var url = "https://digital.lib.niu.edu/islandora/search/";
+            var filtertype = $(form).find('#niudiglibsearchfield').val();
+            $(form).attr('action', search != "" ? (url + filtertype + ':(' + encodeURIComponent(search) + ')') : url);
+            $(form).attr('method', 'POST');
+            $(form).attr('target', '_blank');
+            $(form).submit();
+        }
+
+        /* ------------------------------- Google Scholar --------------------------------*/
+
+        $("#google-search .input-group-append > .btn-primary").click(function (e) {
+            e.preventDefault();
+            search_google($("#google-search input.form-control"));
+        });
+
+        $("#google-search input.form-control").keypress(function (e) {
+            var code = e.key;
+            if (code === "Enter") {
+                e.preventDefault();
+                search_google(this);
+            }
+        });
+
+        var search_google = function (input) {
+            var form = $(input).closest('form');
+            var search = $(input).val();
+            //var url = "https://login.auth.lib.niu.edu/login?url=https://scholar.google.com/scholar?hl=en&q=";
+            var url = "https://scholar.google.com/scholar?hl=en&q=";
+            $(form).attr('action', url + encodeURIComponent(search));
+            $(form).attr('method', 'POST');
+            $(form).attr('target', '_blank');
+            $(form).submit();
+        }
+
+    });
+</script>
